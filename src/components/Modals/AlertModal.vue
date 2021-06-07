@@ -10,23 +10,23 @@
         </header>
          <footer class="modal-footer">
             <div class='modal-footer__panel to-right'>
-                <BaseButton 
+                <button
                     color="#FFCE00"
-                    buttonClasses="m-2"
+                    class="m-2"
                     kind="filled"
                     :loading='isLoading' 
                     @click='confirm'
                 >
                     Confirm
-                </BaseButton>
-                <BaseButton 
+                </button>
+                <button
                     color="#dc143c"
-                    buttonClasses="m-2"
+                    class="m-2"
                     kind="filled"
                     @click='close'
                 >
                     Cancel
-                </BaseButton>
+                </button>
             </div>
         </footer>
     </Modal>
@@ -39,10 +39,6 @@ export default {
     name: 'alert',
     components: {
         Modal,
-        BaseButton: () =>
-            import('@patricia_engineering/patricia-ui-components')
-                .then(m => m.BaseButton)
-                .catch(),
     },
     data() {
         return {

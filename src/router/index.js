@@ -7,17 +7,27 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('@/views/Home/home.vue'),
+    component: () => import('@/views/Home/Home.vue'),
   },
   {
-    path: '/faq',
-    name: 'faq',
-    component: () => import('@/views/Faq/faq.vue'),
+    path: '/identity',
+    name: 'identity',
+    component: () => import('@/views/Identity/Identity.vue'),
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/Login/Login.vue'),
+  },
+  {
+    path: '/enroll',
+    name: 'enroll',
+    component: () => import('@/views/Enroll/Enroll.vue'),
   },
   {
     path: '*',
     name: 'not-found',
-    component: () => import('@/views/Home/home.vue'),
+    component: () => import('@/views/Home/Home.vue'),
   },
 ];
 

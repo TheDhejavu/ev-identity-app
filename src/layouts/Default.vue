@@ -1,7 +1,7 @@
 <template>
     <div class="layout">
         <Header/>
-        <main class="content">
+        <main class="content max-w-screen-xl m-auto">
             <slot/>
         </main>
         <Footer/>
@@ -24,7 +24,7 @@ export default {
 <style lang="scss">
 .layout {
     .content {
-        padding:40px 0;
+        min-height: 600px;
     }
 }
 </style>

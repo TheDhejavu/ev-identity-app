@@ -5,7 +5,8 @@ import router from './router';
 import store from './store';
 import Toaster from './components/Toaster';
 import AlertModal from './components/Modals/AlertModal';
- 
+// import 'ant-design-vue/dist/antd.css'; // or 'ant-design-vue/dist/antd.less'
+
 Vue.config.productionTip = false
 
 Vue.use(AlertModal);

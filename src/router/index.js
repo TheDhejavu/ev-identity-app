@@ -9,15 +9,30 @@ const routes = [
     name: 'home',
     component: () => import('@/views/Home/Home.vue'),
   },
+  // {
+  //   path: '/dashboard',
+  //   name: 'dashboard',
+  //   component: () => import('@/views/Dashboard/PersonalInformation.vue'),
+  // },
   {
-    path: '/identity',
-    name: 'identity',
-    component: () => import('@/views/Identity/Identity.vue'),
+    path: '/dashboard',
+    name: 'dashboard',
+    redirect: "/dashboard/identity",
   },
   {
-    path: '/login',
-    name: 'login',
-    component: () => import('@/views/Login/Login.vue'),
+    path: '/dashboard/personal-information',
+    name: 'personal-information',
+    component: () => import('@/views/Dashboard/PersonalInformation.vue'),
+  },
+  {
+    path: '/dashboard/identity',
+    name: 'identity',
+    component: () => import('@/views/Dashboard/Identity.vue'),
+  },
+  {
+    path: '/dashboard/documents',
+    name: 'documents',
+    component: () => import('@/views/Dashboard/Documents.vue'),
   },
   {
     path: '/enroll',

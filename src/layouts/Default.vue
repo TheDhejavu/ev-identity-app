@@ -1,7 +1,7 @@
 <template>
     <div class="layout">
         <Header/>
-        <main class="content max-w-screen-xl m-auto">
+        <main class="content max-w-screen-xl m-auto ">
             <slot/>
         </main>
         <Footer/>

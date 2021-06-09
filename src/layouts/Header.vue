@@ -1,7 +1,7 @@
 <template>
 <header class="relative bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+    <div class="flex justify-between items-center border-b-2 border-gray-100 md:justify-start md:space-x-10">
       <div class="flex justify-start lg:w-0 lg:flex-1">
         <router-link to="/"> 
           <span class="sr-only">Identit.app</span>
@@ -22,11 +22,11 @@
        <nav class="hidden md:flex space-x-10" hi>
       <!-- <nav class="hidden md:hidden space-x-10"> -->
 
-        <router-link to="/identity" class="text-base font-medium text-gray-500 hover:text-gray-900">
-          <i class="uil uil-user-circle text-xl"></i> My Identity
+        <router-link to="/dashboard" class="text-base font-medium text-gray-500 hover:text-gray-900 py-6">
+          <i class="uil uil-user-circle text-xl"></i> Dashboard
         </router-link>
 
-        <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">
+        <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900 py-6">
           <i class="uil uil-layers text-xl"></i> Voting 
         </a>
 
@@ -56,8 +56,16 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .header {
   background: rgba(255, 255, 255, 255);
+}
+nav {
+  .active {
+    @apply text-green-500 border-b-4 border-green-500;
+    &:hover {
+      @apply text-green-500
+    }
+  }
 }
 </style>

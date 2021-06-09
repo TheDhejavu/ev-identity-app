@@ -1,6 +1,6 @@
 <template>
   <Layout>
-      <nav class="max-w-2xl mx-auto px-4 sm:px-12">
+      <nav class="max-w-3xl mx-auto px-4 sm:px-12">
         <ul class="hidden md:flex space-x-10">
           <li 
             :class="currentStep =='first' ? 'active' : ''" 
@@ -21,11 +21,11 @@
             :class="currentStep =='last' ? 'active' : ''" 
             class="py-5 transition text-base font-bold text-gray-500 hover:text-gray-900"
           >
-            <i class="uil uil-layers text-xl"></i> Scan Face
+            <i class="uil uil-layers text-xl"></i> Facial Enrollment
           </li>
         </ul>
       </nav>
-      <div class="max-w-2xl mx-auto px-3 sm:px-6">
+      <div class="max-w-3xl mx-auto px-3 sm:px-6">
         <first-step 
           v-show="currentStep == 'first'"
           @next="changeStep('second')"

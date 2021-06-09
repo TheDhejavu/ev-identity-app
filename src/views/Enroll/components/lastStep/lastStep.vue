@@ -1,5 +1,5 @@
 <template>
-   <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+   <div class="bg-white shadowmd rounded px-8 pt-6 pb-8 mb-4">
        <h1 class="text-2xl font-extrabold">Facial Enrollment</h1>
         <p class="opacity-50 text-lg py-5 max-w-lg"> Click the link below to start facial scanning and enrollment for your digital identity system. It is Secure.</p>
        <button type="submit" @click="$emit('next')" class="transition group relative w-full flex justify-center py-4 px-4 border border-transparent font-extrabold rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">

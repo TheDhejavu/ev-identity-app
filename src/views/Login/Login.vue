@@ -14,11 +14,11 @@
         <div class="rounded-md shadow-sm -space-y-px">
           <div class="">
             <label for="did-digits" class="sr-only">11-DID Digits</label>
-            <input id="did-digits" name="did-digits" type="" required class="rounded-t-md appearance-none rounded-none relative block w-full px-3 py-4 border border-gray-300 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 " placeholder="11-DID Digits">
+            <input id="did-digits" name="did-digits" type="" required class="bg-gray-100 rounded-t-md appearance-none rounded-none relative block w-full px-4 py-6 border border-gray-200 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 " placeholder="11-DID Digits">
           </div>
           <div class="">
             <label for="password" class="sr-only">Password</label>
-            <input id="password" name="password" type="" required class="rounded-b-md appearance-none rounded-none relative block w-full px-3 py-4 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 " placeholder="Password">
+            <input id="password" name="password" type="" required class="bg-gray-100 rounded-b-md appearance-none rounded-none relative block w-full px-4 py-6   border border-gray-200 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 " placeholder="Password">
           </div>
         </div>
         <div>

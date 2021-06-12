@@ -26,7 +26,7 @@
           <i class="uil uil-user-circle text-xl"></i> Dashboard
         </router-link>
 
-        <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900 py-6">
+       <a href="http://localhost:8080" target="_blank"  class="text-base font-medium text-gray-500 hover:text-gray-900 py-6">
           <i class="uil uil-layers text-xl"></i> Voting 
         </a>
 

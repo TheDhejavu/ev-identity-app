@@ -21,7 +21,7 @@
             :class="currentStep =='last' ? 'active' : ''" 
             class="py-5 transition text-base font-bold text-gray-500 hover:text-gray-900"
           >
-            <i class="uil uil-layers text-xl"></i> Facial Enrollment
+            <i class="uil uil-webcam"></i> Facial Enrollment
           </li>
         </ul>
       </nav>
@@ -57,8 +57,33 @@ export default {
   },
   data() {
     return {
-      currentStep: "first"
+      currentStep: "first",
+      formControls : {
+        first_name: "",
+        last_name: "",
+        password: "",
+        origin: {
+          country: "",
+          city: "",
+          state: "",
+          address: ""
+        },
+        residence: {
+          country: "",
+          city: "",
+          state: "",
+          address: ""
+        },
+        email: "",
+        facial_images: [],
+        birth_certificate: "",
+        national_id_card: "",
+        voter_card: "",
+      },
     }
+  },
+  beforeMount() {
+    this.$store.commit("SET_IDENTITY", this.formControls)
   },
   methods: {
     changeStep( new_step ) {

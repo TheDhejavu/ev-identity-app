@@ -5,11 +5,16 @@
 </template>
 
 <script>
-
+import { isAuthenticated } from "@/helpers/auth";
 export default {
   name: 'App',
-  components: {}
-}
+  mounted() {
+    this.$store.dispatch('ALL_COUNTRY')
+    if(isAuthenticated()){
+      this.$store.dispatch("GET_IDENTITY")
+    }
+  }
+};
 </script>
 
 <style>
@@ -17,7 +22,6 @@ export default {
 #app {
   font-family: Muli,sans-serif;
   -webkit-font-smoothing: antialiased;
-  /* background: #000; */
 }
 h1 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

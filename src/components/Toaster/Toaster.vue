@@ -7,8 +7,8 @@
         >
         <div :class="[t.theme, 'toaster flex']" v-for='t in toasters' :key='t.key'>
             <span :class="[t.icon, 'icon']"></span>
-            <span class="message">{{ t.message }} </span>
-            <button class="btn btn-close to-right" @click="remove(t)"><i class='uil uil-times'></i></button>
+            <span class="message pl-5">{{ t.message }} </span>
+            <button class="btn btn-close absolute top-2 right-0" @click="remove(t)"><i class='uil uil-times'></i></button>
         </div>
     </transition-group>
     </div>
@@ -108,11 +108,11 @@ export default {
             font-weight: 500;
         }
         .btn-close{
-            background:rgba(0,0,0,0.09);
+            // background:rgba(0,0,0,0.09);
             border:none;
             border-radius:100%;
-            top:0;
-            right:0;
+            // top:0;
+            // right:0;
             padding:4px 3px;
             color:#fff;
             box-shadow:none;

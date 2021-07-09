@@ -1,74 +1,94 @@
 <template>
   <Layout>
       <div class="mt-5 p-5 mb-6">
-            <h1 class="py-5 transition text-xl font-bold border-b border-gray-100 mb-10">Personal Information</h1>
+            <h1 class="py-5 transition text-xl font-bold border-b border-gray-200 mb-10">Personal Information</h1>
            
           <div class="flex mb-6 space-x-5">
             <div class="w-1/2">
-              <div class="bg-gray-100 p-4">
+              <div class="bg-white p-4">
                 <label class="mr-2 block text-gray-700 text-sm font-bold mb-2" for="firstname">
                   First Name
                 </label>
-                <p>Akinola</p>
+                <p>{{$store.getters.identity.first_name}}</p>
               </div>
             </div>
             <div class="w-1/2">
-              <div class="bg-gray-100 p-4">
+              <div class="bg-white p-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="lastname">
                   Last Name
                 </label>
-                <p>Ayodeji</p>
+                <p>{{$store.getters.identity.last_name}}</p>
               </div>
             </div>
           </div>
-          <div class="mb-6 bg-gray-100 p-4">
-              <label class="block text-gray-700 text-sm font-bold mb-2" for="dob">
-                Date of Birth
+          <div class="mb-6 bg-white p-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                Email Address
               </label>
-              <p>June 23, 1999</p>
+              <p>{{$store.getters.identity.email}}</p>
           </div>
-          <div class="mb-6 bg-gray-100 p-4">
+          <div class="mb-6 bg-white p-4">
               <label class="block text-gray-700 text-sm font-bold mb-2" for="country">
-                Country
+                Country of Origin
               </label>
-              <p>Nigeria</p>
+              <p>{{$store.getters.identity.origin.country.name}}</p>
           </div>
-          <div class="mb-6 bg-gray-100 p-4">
-              <label class="block text-gray-700 text-sm font-bold mb-2" for="zipcode">
-               Zipcode
-              </label>
-              <p>120092</p>
-          </div>
+          
           <div class="flex mb-6 space-x-5">
             <div class="w-1/2">
-              <div class="bg-gray-100 p-4">
+              <div class="bg-white p-4">
                 <label class="mr-2 block text-gray-700 text-sm font-bold mb-2" for="state">
-                  State
+                  State of Origin
                 </label>
-              <p>Ondo State</p>
+              <p>{{$store.getters.identity.origin.state}}</p>
               </div>
             </div>
             <div class="w-1/2">
-              <div class="bg-gray-100 p-4">
+              <div class="bg-white p-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="city">
-                  City
+                  City of origin
                 </label>
-                <p>Akure</p>
+                <p>{{$store.getters.identity.origin.city}}</p>
               </div>
             </div>
           </div>
-          <div class="mb-6 bg-gray-100 p-4">
+          <div class="mb-6 bg-white p-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="country">
+                Residence Country
+              </label>
+              <p>{{$store.getters.identity.residence.country.name}}</p>
+          </div>
+          
+          <div class="flex mb-6 space-x-5">
+            <div class="w-1/2">
+              <div class="bg-white p-4">
+                <label class="mr-2 block text-gray-700 text-sm font-bold mb-2" for="state">
+                  Residence State
+                </label>
+              <p>{{$store.getters.identity.residence.state}}</p>
+              </div>
+            </div>
+            <div class="w-1/2">
+              <div class="bg-white p-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="city">
+                  Residence City
+                </label>
+                <p>{{$store.getters.identity.residence.city}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="mb-6 bg-white p-4">
               <label class="block text-gray-700 text-sm font-bold mb-2" for="address">
               Address
               </label>
-              <p>Lydia Street Opposite Bennyrose Hotel</p>
+              <p>{{$store.getters.identity.residence.address}}</p>
           </div>
-           <div class="mb-6 bg-gray-100 p-4">
+           <div class="mb-6 bg-white p-4">
               <label class="mr-2 block text-gray-700 text-sm font-bold mb-2" for="firstname">
                 Photo
               </label>
               <div class="mt-1 flex items-center">
-                <span class="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
+                <span class="inline-block h-12 w-12 rounded-full overflow-hidden bg-white">
                   <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>

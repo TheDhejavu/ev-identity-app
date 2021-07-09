@@ -17,12 +17,13 @@ export default {
     components: {
         Header,
         Footer,
-    }
+    },
 }
 </script>
 
 <style lang="scss">
 .layout {
+    background: #f0f0f0;
     .content {
         min-height: 600px;
     }

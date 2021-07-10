@@ -2,19 +2,19 @@
   <Layout>
       <div class="flex flex-wrap max-w-4xl m-auto">
         <nav class="w-1/3 pt-8">
-        <ul class="p-5">
+        <ul class="p-5 bg-white my-10 m-5">
             <li 
-            class="transition text-base font-extrabold text-gray-500 hover:text-gray-900"
+            class="transition text-base text-gray-500 hover:text-gray-900"
           >
             <router-link to="/dashboard/identity" class=" px-3 py-3  block">e-Identity </router-link>
           </li>
           <li 
-            class="transition text-base font-extrabold text-gray-500 hover:text-gray-900"
+            class="transition text-base text-gray-500 hover:text-gray-900"
           >
              <router-link to="/dashboard/personal-information" class="px-3 py-3 block">Personal Information </router-link>
           </li>
           <li 
-            class="transition text-base font-bold text-gray-500 hover:text-gray-900"
+            class="transition text-base text-gray-500 hover:text-gray-900"
           >
             <router-link to="/dashboard/documents" class="py-3 px-3 block"> Documents </router-link>
           </li>
@@ -40,7 +40,7 @@ export default {
 <style lang="scss" scoped>
 nav {
   .active {
-    @apply bg-gray-100 text-black;
+    @apply bg-white text-black font-black cursor-pointer;
   }
 }
 </style>

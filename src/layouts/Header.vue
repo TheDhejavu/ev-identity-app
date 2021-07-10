@@ -62,7 +62,6 @@
       </div>
     </div>
   </div>
-
 </header>
 
 </template>
@@ -80,7 +79,7 @@ export default {
       logout() {
         removeAuthToken()
         this.$store.commit("SET_IDENTITY", null)
-        return  window.location ="/login"
+        this.$router.push("/login")
       }
     }
 }

@@ -1,11 +1,8 @@
 import { getAllCountry } from "@/api";
 
 const defaultState = {
-  banks: [],
-  coins: [],
-  currency: [],
+  countries: [],
   errors: [],
-  assetsLoaded: 0
 };
 
 const actions = {

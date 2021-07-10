@@ -1,12 +1,8 @@
 import { getCurrentIdentity } from "@/api";
 
-
 const defaultState = {
-  banks: [],
-  coins: [],
-  currency: [],
-  errors: [],
-  assetsLoaded: 0
+  identity: {},
+  errors: {},
 };
 
 const actions = {
@@ -18,6 +14,10 @@ const actions = {
     })
     .catch(function (error) {
       console.log(error.response.data)
+      context.commit('SET_ERRORS', {
+        type: "identity",
+        data: error.response.data,
+      });
       context.commit('SET_IDENTITY', null);
     })
   },
@@ -25,12 +25,16 @@ const actions = {
 
 const mutations = {
   SET_IDENTITY: (state, payload) => {
-    state.identity =  payload
+    state.identity = payload
+  },
+  SET_ERRORS: (state, payload) => {
+    state.errors = payload
   },
 };
 
 const getters = {
   identity: (state) => state.identity,
+  errors: (state) => state.errors,
 };
 
 export default {

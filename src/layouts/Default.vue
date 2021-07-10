@@ -1,5 +1,5 @@
 <template>
-    <div class="layout">
+    <div class="layout bg-gray-200">
         <Header/>
         <main class="content max-w-screen-xl m-auto ">
             <slot/>

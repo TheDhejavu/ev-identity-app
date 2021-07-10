@@ -50,7 +50,7 @@
               </svg>
             </span>
             <loader :loading="isLoading" size="16px"></loader>
-          <span v-if="!isLoading">Login</span>
+            <span v-if="!isLoading">Login</span>
           </button>
         </div>
       </form>
@@ -86,18 +86,23 @@ export default {
       this.isLoading = true;
       loginIdentity(this.formControls).then( (response) => {
           this.$toaster.success(response.data.message)
+          this.$store.commit("SET_IDENTITY", response.data.data.identity)
           setAuthToken(response.data.data.access_token);
-          window.location ="/dashboard/identity"
+          this.$router.push("/dashboard/identity")
         })
         .catch((error) =>{
-          // console.log(error.response.data)
-          if( typeof error.response.data.data !== "undefined") {
-            for(const key in error.response.data.data){
-              this.$toaster.error(error.response.data.data[key])
-              break;
+         
+          if (error.response){
+            if( typeof error.response.data.data !== "undefined") {
+              for(const key in error.response.data.data){
+                this.$toaster.error(error.response.data.data[key])
+                break;
+              }
+            } else {
+              this.$toaster.error(error.response.data.message)
             }
-          } else {
-            this.$toaster.error(error.response.data.message)
+          }else {
+            this.$toaster.error("Whoops!! something went wrong")
           }
         }).finally(()=>{
           this.isLoading = false

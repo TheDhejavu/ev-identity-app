@@ -72,7 +72,7 @@ export default {
         
       },
       webCamOff(){
-        if(this.localStream ){
+        if(this.webcam ){
           this.webcam.getTracks().forEach((track)=> {
             track.stop();
             this.cameraEnabled = false

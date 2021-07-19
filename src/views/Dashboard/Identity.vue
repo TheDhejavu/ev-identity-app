@@ -3,7 +3,7 @@
     <div class="mt-5 p-5 mb-6">
         <h1 class="py-5 transition text-xl font-bold border-b border-gray-200 mb-5">Digital Identity</h1>
       
-          <div class="">
+          <div class="" v-if="identity">
             <!-- <div class="">
                <h1 class="pt-0 font-bold py-5 text-base"> Virtual Card </h1>
               <img src="../../assets/img/Screenshot 2021-06-14 at 11.26.32 PM.png"/>
@@ -20,7 +20,7 @@
             
             <div class="mb-6 bg-white p-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="zipcode">
-                Public View Key
+                Public View Key <strong class="text-sm px-2 rounded-md bg-green-100">(Base58 Encode)</strong>
                 </label>
                 <p class="break-words text-sm">
                   {{$store.getters.identity.wallet.public_view_key}}
@@ -42,7 +42,7 @@
             </div>
             <div class="mb-6 bg-white p-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="zipcode">
-                Public Main Key
+                Public Main Key <strong class="text-sm px-2 rounded-md bg-green-100">RSA(Base58 Encode)</strong>
                 </label>
                 <p class="break-words text-sm">
                   {{$store.getters.identity.wallet.public_main_key}}
@@ -50,7 +50,7 @@
             </div>
             <div class="mb-6 bg-white p-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="zipcode">
-                Private Main Key
+                Private Main Key 
                 </label>
                 <p class="break-words text-xs">
                 <button type="submit" class="text-sm transition group relative flex justify-center py-2 px-10 border border-transparent font-extrabold rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
@@ -64,7 +64,7 @@
             </div>
             <div class="mb-6 bg-white p-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2" for="zipcode">
-                Certificate
+                Certificate <strong class="text-sm px-2 rounded-md bg-green-100">(Base58 Encode)</strong>
                 </label>
                 <p class="break-words text-xs">
                   {{$store.getters.identity.wallet.certificate}}

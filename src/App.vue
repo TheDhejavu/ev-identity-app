@@ -17,9 +17,10 @@ export default {
   },
   watch: {
     "$store.getters.errors": (errors)=>{
-      if(errors.data.status === 401 && errors.type == "identity") {
+      
+      if(errors.data && errors.data.status === 401 && errors.type == "identity") {
         removeAuthToken()
-        this.$router.push("/login")
+        this.$route.push("/login")
       }
     }
   }

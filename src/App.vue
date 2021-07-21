@@ -40,4 +40,10 @@ body {
 h1 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.swal2-confirm , .swal2-styled {
+  background: rgb(224, 224, 224) !important;
+  color:#000 !important;
+  padding:10px 30px !important;
+}
 </style>

@@ -35,7 +35,7 @@
         </button>
         <video autoplay class="feed"></video>
         <button class="snap" v-on:click="takePicture" v-show="cameraEnabled">
-          SNAP
+          <i class="uil uil-capture text-4xl"></i>
         </button>
       </div>
       <div class="pictures flex flex-wrap" ref="pictures"></div>
@@ -57,31 +57,17 @@
         border border-transparent
         font-extrabold
         rounded-md
-        text-white
+        text-white text-lg
         bg-green-600
         hover:bg-green-700
         focus:outline-none
         focus:ring-2 focus:ring-offset-2 focus:ring-green-500
       "
     >
-      <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-        <svg
-          class="h-5 w-5 text-green-500 group-hover:text-green-400"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-            clip-rule="evenodd"
-          />
-        </svg>
-      </span>
       <loader :loading="isLoading" size="16px"></loader>
       <span v-if="!isLoading">Complete Enrollment</span>
     </button>
+    <sweet-modal icon="success" ref="modal" :title="message"></sweet-modal>
   </div>
 </template>
 
@@ -99,6 +85,7 @@ export default {
     return {
       cameraEnabled: false,
       isLoading: false,
+      message: "",
     };
   },
   beforeDestroy() {
@@ -185,25 +172,61 @@ export default {
       this.isLoading = true;
       createIdentity(formData)
         .then((response) => {
+          console.log(response)
           this.$toaster.success(response.data.message);
           this.$router.push("/login");
+          var data = response.data.data;
+          this.$swal({
+            icon: 'success',
+            title: '<strong><i class="uil uil-thumbs-up"></i> Successfully Enrolled</strong>',
+            html:
+              `You have been successfully enrolled and your digital identity information is listed below
+
+              <h2 class="text-left pt-10 pl-5 text-lg font-bold">Basic Information</h5>
+              <div class="text-xs text-left  leading-6 bg-green-100 rounded-lg p-5 m-3">
+                <strong>Name:</strong> ${data.first_name} ${data.last_name} <br/>
+                <strong>Digits:</strong> ${data.digits} <br/>
+                <strong>Email Address:</strong> ${data.email} <br/>
+                
+              </div>
+              <h2 class="text-left pl-5 text-lg font-bold">Identity keys</h5>
+              <div class="text-xs text-left  leading-6 bg-green-100 rounded-lg p-5 m-3">
+                <strong>Public main key:</strong> ${data.wallet.public_main_key} <br/>
+                <strong>Public view key:</strong> ${data.wallet.public_view_key} <br/>
+                <strong>Digital Certificate:</strong><br/> ${data.wallet.certificate} <br/>
+              </div>`,
+            showCloseButton: true,
+            focusConfirm: false,
+            confirmButtonText: "Proceed to Login!"
+          })
         })
         .catch((error) => {
           console.log(error.response.data);
-          if (typeof error.response.data.data !== "undefined") {
-            for (const key in error.response.data.data) {
-              this.$toaster.error(error.response.data.data[key]);
-              break;
+          var message = "Whoops!! something went wrong"
+          if (error.response) {
+            if (typeof error.response.data.data !== "undefined") {
+              for (const key in error.response.data.data) {
+                message   = error.response.data.data[key]
+                break;
+              }
+            } else {
+              message = error.response.data.message
             }
-          } else {
-            this.$toaster.error(error.response.data.message);
-          }
+          } 
+          this.$swal({
+            icon: 'error',
+            title: `<strong>Authentication Failed.</strong>`,
+            html:`${message}`,
+            showCloseButton: true,
+            focusConfirm: false,
+          })
         })
         .finally(() => {
           this.isLoading = false;
         });
     },
   },
+  
 };
 </script>
 
@@ -233,7 +256,9 @@ export default {
   cursor: pointer;
   transition: 0.2s;
   &:hover {
-    background-color: crimson;
+    background-color: #dc143c;
+    border: 1px solid #dc143c;
+    color: #fff;
   }
   &:active {
     background-color: darken($color: #ffce00, $amount: 15);
